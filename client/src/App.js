@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Contract, ethers } from 'ethers';
+import {  ethers } from 'ethers';
 import DriveAbi from './contracts/Drive.sol/Drive.json';
 import FileUpload from './component/FileUpload';
 import Display from './component/Display';
@@ -23,7 +23,7 @@ function App() {
       try {
         const { ethereum } = window;
         if (ethereum) {
-          const accountDetails = await ethereum.request({ method: 'eth_requestAccounts' });
+          await ethereum.request({ method: 'eth_requestAccounts' });
 
           window.ethereum.on('chainChanged', (chainId) => {
             window.location.reload();
